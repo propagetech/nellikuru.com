@@ -113,7 +113,7 @@
         '</div>' +
         '<div class="lb-main">' +
           '<button class="lb-nav lb-prev" type="button" aria-label="Previous image">' + SVG.prev + '</button>' +
-          '<figure class="lb-stage"><img class="lb-img" alt="" decoding="async"><figcaption class="lb-caption"></figcaption></figure>' +
+          '<figure class="lb-stage"><span class="lb-imgwrap"><img class="lb-img" alt="" decoding="async"></span><figcaption class="lb-caption"></figcaption></figure>' +
           '<button class="lb-nav lb-next" type="button" aria-label="Next image">' + SVG.next + '</button>' +
         '</div>' +
         '<div class="lb-thumbs" aria-label="Gallery thumbnails"></div>';
@@ -152,6 +152,10 @@
         elCap.textContent = s.caption;
         elCap.style.display = s.caption ? '' : 'none';
         elCount.textContent = (index + 1) + ' / ' + n;
+        /* restart the slow ken-burns zoom for the freshly shown image */
+        elImg.classList.remove('is-zooming');
+        void elImg.offsetWidth;
+        elImg.classList.add('is-zooming');
         thumbBtns.forEach(function (b, i) {
           if (i === index) { b.setAttribute('aria-current', 'true'); b.scrollIntoView({ block: 'nearest', inline: 'center' }); }
           else b.removeAttribute('aria-current');
@@ -219,6 +223,16 @@
       elClose.addEventListener('click', close);
       elMain.addEventListener('click', function (e) { if (e.target === elMain) close(); });
       document.addEventListener('fullscreenchange', setFullIcon);
+
+      // touch swipe on the image area
+      var sx = null;
+      elMain.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+      elMain.addEventListener('touchend', function (e) {
+        if (sx === null) return;
+        var dx = e.changedTouches[0].clientX - sx;
+        if (Math.abs(dx) > 44) { if (dx < 0) next(); else prev(); }
+        sx = null;
+      }, { passive: true });
 
       document.addEventListener('keydown', function (e) {
         if (lb.hidden) return;
