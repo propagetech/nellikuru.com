@@ -7,7 +7,7 @@ and no build step. It deploys from the repo root via GitHub Pages.
 Business: Nellikuru Innovations Pvt. Ltd., an R&D startup in iron and steel making in
 India (Make in India). Two solutions for the cast house: hot metal desiliconization
 (the patented Nellikuru Process) and a hot metal insulation compound (yield
-improvement). Contact email: **info@nellikuru.com** (email-led, no backend).
+improvement). Contact email: **sabudominic1@gmail.com** (email-led, no backend).
 
 ---
 
@@ -141,3 +141,15 @@ node tools/contrast-audit.mjs                        # DOM-aware AA audit, exit 
 ```
 Also: every JSON-LD block parses, one `<h1>` per page, every internal link and #anchor
 resolves, and the site works with JavaScript disabled.
+
+---
+
+## Design skills (house)
+
+Visual polish follows the **`refactoring-ui`** skill (hierarchy, spacing scale, type scale,
+HSL/OKLCH ramps, depth, imagery, finishing touches). Load it for any CSS/UI pass.
+
+- Skill: `~/.claude/skills/refactoring-ui/` (also `~/.cursor/skills/refactoring-ui/`)
+- Human PDF (do not paste book text here): `/Users/chetan/Downloads/Learning/refactoring-ui_compress 2.pdf`
+- Full rebuilds: `site-rebuild` + `../_rebuild-kit/` — ProPage invariants (WCAG AA, real logo,
+  photos-first, type-by-register, no em/en dashes) override generic taste.

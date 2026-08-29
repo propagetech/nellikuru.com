@@ -15,7 +15,7 @@ small JS file, deploying from the repo root via GitHub Pages.
 for clarity from the existing site (R&D startup in iron and steel making under Make in
 India; hot metal desiliconization via the patented Nellikuru Process; hot metal insulation
 compound for yield improvement). The contact details on the old site were builder
-placeholders, so the only real contact, `info@nellikuru.com`, is used and the flow is
+placeholders, so the only real contact, `sabudominic1@gmail.com`, is used and the flow is
 email-led with no backend and no invented phone or address.
 
 **Brand and type.** Colours were derived from `imgs/logo.webp` (red orb mark on charcoal):
